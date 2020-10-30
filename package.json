@@ -2,7 +2,7 @@
   "name": "reog-apps-website",
   "version": "1.0.0",
   "description": "The Admin Panel Website of Reog Apps",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +18,17 @@
   "bugs": {
     "url": "https://github.com/erikrios/reog-apps-website/issues"
   },
-  "homepage": "https://github.com/erikrios/reog-apps-website#readme"
+  "homepage": "https://github.com/erikrios/reog-apps-website#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^5.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.2.0"
+  }
 }
