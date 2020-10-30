@@ -12,13 +12,14 @@ class DataSource {
         })
             .then(response => { return response.json() })
             .then(responseJson => {
-                if (responseJson.status.contains('success')) {
+                if (responseJson.status.includes('success')) {
+                    console.log('success');
                     return Promise.resolve(responseJson.data[0]);
                 } else {
+                    console.log('error');
                     return Promise.reject(`${responseJson.message}`);
                 }
             })
-            .catch(err => console.error(err));
     }
 }
 
