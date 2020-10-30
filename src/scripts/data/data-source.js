@@ -21,3 +21,5 @@ class DataSource {
             .catch(err => console.error(err));
     }
 }
+
+export default DataSource;
