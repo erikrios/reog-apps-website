@@ -1,5 +1,6 @@
 const main = () => {
-    console.log('Hello, World!');
+    let body = document.getElementsByTagName('body');
+    body[0].innerHTML = 'Hello, World!';
 }
 
 export default main;
