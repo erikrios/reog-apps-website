@@ -1,5 +1,5 @@
 class DataSource {
-    static authenticate(email, username) {
+    static authenticate(email, password) {
         return fetch('https://reog.herokuapp.com/api/auth', {
             method: 'POST',
             headers: new Headers({
