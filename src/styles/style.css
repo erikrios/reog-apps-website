@@ -2,11 +2,6 @@
     margin: 0;
 }
 
-html {
-    width: 100%;
-    height: 100%;
-}
-
 body {
     min-width: 100%;
     min-height: 100%;
@@ -14,8 +9,8 @@ body {
 }
 
 img {
-    width: 35%;
-    height: 35%;
+    width: 120px;
+    height: 120px;
     margin: 0 auto;
     display: block;
 }
@@ -28,25 +23,50 @@ img {
     left: 0;
     margin: auto;
     width: 500px;
-    height: 300px;
+    height: 380px;
     background-color: white;
-    border-radius: 8%;
-    padding: 50px 20px;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .input-field {
-    height: 30px;
-    display: block;
-    width: 80%;
-    margin: 20px auto;
+    margin-top: 20px;
+    padding: 16px;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    top: 0px;
+    left: 0px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .button {
     display: block;
+    border-radius: 15px;
     height: 50px;
     width: 50%;
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
     background-color: green;
     color: white;
     font-weight: bold;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background-color: rgb(9, 121, 57);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
