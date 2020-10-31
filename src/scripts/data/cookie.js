@@ -1,6 +1,6 @@
 module.exports = {
     setCookie: (name, value, hoursToLive) => {
-        const cookie = `${name}=${encodeURIComponent(value)}`;
+        let cookie = `${name}=${encodeURIComponent(value)}`;
 
         if (typeof hoursToLive === 'number') {
             cookie += `; max-age=${hoursToLive * 60 * 60}`;
