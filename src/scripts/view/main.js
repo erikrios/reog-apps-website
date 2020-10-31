@@ -1,6 +1,7 @@
 import Icon from '../../assets/peacock.svg';
 import DataSource from '../data/data-source.js';
 import cookie from '../data/cookie.js';
+import renderDashboard from './dashboard.js';
 
 const main = () => {
 
@@ -25,20 +26,15 @@ const main = () => {
 
             try {
                 const token = await DataSource.authenticate(email, password);
-                cookie.setCookie('auth-token', token, 1);
+                cookie.setCookie('auth-token', token, 0.03);
+                renderDashboard(token);
             } catch (error) {
                 alert(`Error: ${error}`)
             }
         });
     } else {
-        const bodyElement = document.getElementsByTagName('body');
-        bodyElement.removeChild();
-        const tokenNode = document.createTextNode(`Already logged in with token : ${cookie.getCookie('auth-token')}`);
-        const paragraphElement = document.createElement('p');
-        paragraphElement.appendChild(tokenNode);
-        bodyElement.appendChild(paragraphElement);
+        renderDashboard(token);
     }
-
 }
 
 const onEnter = (event, triggeredElement) => {
