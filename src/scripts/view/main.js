@@ -1,6 +1,5 @@
-import Icon from '../../assets/peacock.svg';
-import DataSource from '../data/data-source.js';
 import cookie from '../data/cookie.js';
+import renderLogin from './login.js';
 import renderDashboard from './dashboard.js';
 
 const main = () => {
@@ -10,37 +9,9 @@ const main = () => {
     if (token) isLoggedIn = true; else isLoggedIn = false;
 
     if (!isLoggedIn) {
-        const images = document.getElementsByTagName('img');
-        images[0].setAttribute('src', Icon);
-
-        const inputEmail = document.getElementById('input-email');
-        const inputPassword = document.getElementById('input-password');
-        const signInButton = document.getElementById('signin-button');
-
-        inputEmail.addEventListener('keyup', (event) => { onEnter(event, signInButton) });
-        inputPassword.addEventListener('keyup', (event) => { onEnter(event, signInButton) });
-
-        signInButton.addEventListener('click', async () => {
-            const email = inputEmail.value;
-            const password = inputPassword.value;
-
-            try {
-                const token = await DataSource.authenticate(email, password);
-                cookie.setCookie('auth-token', token, 0.03);
-                renderDashboard(token);
-            } catch (error) {
-                alert(`Error: ${error}`)
-            }
-        });
+        renderLogin();
     } else {
         renderDashboard(token);
-    }
-}
-
-const onEnter = (event, triggeredElement) => {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-        triggeredElement.click();
     }
 }
 
