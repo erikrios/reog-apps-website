@@ -1,4 +1,4 @@
-module.exports = function(token) {
+export default function(token) {
     const bodyElement = document.getElementsByTagName('body')[0];
         bodyElement.innerHTML = '';
         bodyElement.style.backgroundColor = 'white';
