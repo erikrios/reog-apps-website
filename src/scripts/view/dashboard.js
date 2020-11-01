@@ -1,3 +1,5 @@
+import renderArticle from './article.js';
+
 export default function (token) {
 
     const bodyElement = document.getElementsByTagName('body')[0];
@@ -62,6 +64,6 @@ export default function (token) {
     bodyElement.appendChild(container);
 
     newsCard.addEventListener('click', event => {
-
+        renderArticle(token, 'news');
     });
 }
