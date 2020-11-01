@@ -14,14 +14,29 @@ export default function (token, type) {
     descriptionInput.rows = 30;
     descriptionInput.cols = 150;
 
-    const buttonText = document.createTextNode('Add Data');
+    const buttonDataText = document.createTextNode('Add Data');
 
-    const addDatabButton = document.createElement('button');
-    addDatabButton.id = 'article-add-data-button';
-    addDatabButton.type = 'button';
-    addDatabButton.appendChild(buttonText);
+    const addDataButton = document.createElement('button');
+    addDataButton.id = 'article-add-data-button';
+    addDataButton.type = 'button';
+    addDataButton.appendChild(buttonDataText);
 
     bodyElement.appendChild(titleInput);
     bodyElement.appendChild(descriptionInput);
-    bodyElement.appendChild(addDatabButton);
+    bodyElement.appendChild(addDataButton);
+
+    const imageInput = document.createElement('input');
+    imageInput.id = 'article-image-input';
+    imageInput.type = 'text';
+    imageInput.placeholder = 'Image URL';
+
+    const buttonImageText = document.createTextNode('Add Image');
+
+    const addImageButton = document.createElement('button');
+    addImageButton.id = 'article-add-image-button';
+    addImageButton.type = 'button';
+    addImageButton.appendChild(buttonImageText);
+
+    bodyElement.appendChild(imageInput);
+    bodyElement.appendChild(addImageButton);
 }
