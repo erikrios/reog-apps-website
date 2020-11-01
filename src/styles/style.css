@@ -144,3 +144,15 @@ body, html {
 #article-add-data-button {
     text-transform: uppercase;
 }
+
+#article-image-input, #article-add-image-button {
+    margin: 20px;
+}
+
+#article-image-input {
+    width: 80%;
+}
+
+#article-add-image-button {
+    text-transform: uppercase;
+}
