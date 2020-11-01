@@ -1,3 +1,5 @@
+import DataSource from '../data/data-source.js';
+
 export default function (token, type) {
     const bodyElement = document.getElementsByTagName('body')[0];
     bodyElement.innerHTML = '';
@@ -45,4 +47,26 @@ export default function (token, type) {
     bodyElement.appendChild(idInput);
     bodyElement.appendChild(imageInput);
     bodyElement.appendChild(addImageButton);
+
+    addDataButton.addEventListener('click', async () => {
+        await postArticle();
+    });
+
+    const postArticle = async () => {
+        const title = titleInput.value;
+        const description = descriptionInput.value;
+        buttonDataText.nodeValue = 'Adding Data...';
+
+        try {
+            const article = DataSource.postArticle(token, title, description, type);
+            alert('Success');
+            buttonDataText.nodeValue = 'Add Data';
+            titleInput.value = '';
+            descriptionInput.value = '';
+            idInput.value = article._id;
+        } catch (error) {
+            buttonDataText.nodeValue = 'Add Data';
+            alert(`Error: ${error}`);
+        }
+    }
 }
