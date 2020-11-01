@@ -65,7 +65,6 @@ export default function (token, type) {
             const status = await DataSource.postArticleImage(token, id, url, type);
             if (status) alert('Success');
             buttonImageText.nodeValue = 'Add Data';
-            idInput.value = '';
             imageInput.value = '';
         } catch (error) {
             buttonImageText.nodeValue = 'Add Image';

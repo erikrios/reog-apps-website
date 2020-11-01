@@ -71,9 +71,9 @@ class DataSource {
         .then(response => { return response.json()})
         .then(responseJson => {
             if (responseJson.status.includes('success')) {
-                Promise.resolve(responseJson.status);
+                return Promise.resolve(responseJson.status);
             } else {
-                Promise.reject(responseJson.message);
+                return Promise.reject(responseJson.message);
             }
         });
     }
