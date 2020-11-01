@@ -69,7 +69,7 @@ export default function () {
 
         try {
             const token = await DataSource.authenticate(email, password);
-            cookie.setCookie('auth-token', token, 0.03);
+            cookie.setCookie('auth-token', token, 0.25);
             renderDashboard(token);
         } catch (error) {
             alert(`Error: ${error}`)
