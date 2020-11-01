@@ -87,6 +87,15 @@ body, html {
 #dashboard-wallpaper-card {
     display: inline-block;
     height: 50%;
+    opacity: 0.5;
+}
+
+#dashboard-news-card:hover,
+#dashboard-sites-card:hover,
+#dashboard-foods-card:hover,
+#dashboard-histories-card:hover,
+#dashboard-wallpaper-card:hover {
+    opacity: 1;
 }
 
 #dashboard-news-card {
