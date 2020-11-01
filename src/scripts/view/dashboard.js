@@ -66,4 +66,16 @@ export default function (token) {
     newsCard.addEventListener('click', event => {
         renderArticle(token, 'news');
     });
+
+    sitesCard.addEventListener('click', event => {
+        renderArticle(token, 'sites');
+    });
+
+    foodsCard.addEventListener('click', event => {
+        renderArticle(token, 'foods');
+    });
+
+    historiesCard.addEventListener('click', event => {
+        renderArticle(token, 'histories');
+    });
 }
