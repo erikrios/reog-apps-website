@@ -1,3 +1,5 @@
+import article from "../view/article";
+
 const BASE_URL = 'https://reog.herokuapp.com';
 
 class DataSource {
@@ -48,6 +50,32 @@ class DataSource {
                     return Promise.reject(responseJson.message);
                 }
             });
+    }
+
+    static postArticleImage(token, articleId, imageUrl, type) {
+        const articleType = type.includes('news') ? 'news' :
+            type.includes('sites') ? 'sites' :
+                type.includes('foods') ? 'foods' :
+                    'histories';
+
+        return fetch(`${BASE_URL}/api/${articleType}/image?id=${articleId}`, {
+            method: 'POST',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Auth-Token': token
+            }),
+            body: JSON.stringify({
+                image: imageUrl
+            })
+        })
+        .then(response => { return response.json()})
+        .then(responseJson => {
+            if (responseJson.status.includes('success')) {
+                Promise.resolve(responseJson.status);
+            } else {
+                Promise.reject(responseJson.message);
+            }
+        });
     }
 }
 
