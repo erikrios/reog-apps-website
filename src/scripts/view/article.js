@@ -10,8 +10,9 @@ export default function (token, type) {
 
     const descriptionInput = document.createElement('textarea');
     descriptionInput.id = 'article-description-input';
-    descriptionInput.rows = 5;
-    descriptionInput.cols = 50;
+    descriptionInput.placeholder = 'Description';
+    descriptionInput.rows = 30;
+    descriptionInput.cols = 150;
 
     const buttonText = document.createTextNode('Add Data');
 

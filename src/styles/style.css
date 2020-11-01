@@ -131,3 +131,16 @@ body, html {
     height: 100%;
     text-align: center;
 }
+
+#article-title-input, #article-description-input, #article-add-data-button {
+    display: block;
+    margin: 20px;
+}
+
+#article-title-input {
+    width: 1000px;
+}
+
+#article-add-data-button {
+    text-transform: uppercase;
+}
