@@ -69,13 +69,12 @@ export default function () {
         signInButton.value = 'Authenticating...'
 
         try {
-            signInButton.value = 'Sign In';
             const token = await DataSource.authenticate(email, password);
             cookie.setCookie('auth-token', token, 0.25);
             renderDashboard(token);
         } catch (error) {
             signInButton.value = 'Sign In';
-            alert(`Error: ${error}`)
+            alert(`Error: ${error}`);
         }
     });
 }
