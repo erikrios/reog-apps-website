@@ -52,13 +52,34 @@ export default function (token, type) {
         await postArticle();
     });
 
+    addImageButton.addEventListener('click', async () => {
+        await postArticleImage();
+    });
+
+    const postArticleImage = async () => {
+        const id = idInput.value;
+        const url = imageInput.value;
+        buttonImageText.nodeValue = 'Adding Image...';
+
+        try {
+            const status = await DataSource.postArticleImage(token, id, url, type);
+            if (status) alert('Success');
+            buttonImageText.nodeValue = 'Add Data';
+            idInput.value = '';
+            imageInput.value = '';
+        } catch (error) {
+            buttonImageText.nodeValue = 'Add Image';
+            alert(`Error: ${error}`);
+        }
+    }
+
     const postArticle = async () => {
         const title = titleInput.value;
         const description = descriptionInput.value;
         buttonDataText.nodeValue = 'Adding Data...';
 
         try {
-            const article = DataSource.postArticle(token, title, description, type);
+            const article = await DataSource.postArticle(token, title, description, type);
             alert('Success');
             buttonDataText.nodeValue = 'Add Data';
             titleInput.value = '';
