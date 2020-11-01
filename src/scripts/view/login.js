@@ -66,12 +66,15 @@ export default function () {
     signInButton.addEventListener('click', async () => {
         const email = emailInput.value;
         const password = passwordInput.value;
+        signInButton.value = 'Authenticating...'
 
         try {
+            signInButton.value = 'Sign In';
             const token = await DataSource.authenticate(email, password);
             cookie.setCookie('auth-token', token, 0.25);
             renderDashboard(token);
         } catch (error) {
+            signInButton.value = 'Sign In';
             alert(`Error: ${error}`)
         }
     });
