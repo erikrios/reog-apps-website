@@ -1,6 +1,9 @@
+const BASE_URL = 'https://reog.herokuapp.com';
+
 class DataSource {
+
     static authenticate(email, password) {
-        return fetch('https://reog.herokuapp.com/api/auth', {
+        return fetch(`${BASE_URL}/api/auth`, {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json'
@@ -13,13 +16,38 @@ class DataSource {
             .then(response => { return response.json() })
             .then(responseJson => {
                 if (responseJson.status.includes('success')) {
-                    console.log('success');
                     return Promise.resolve(responseJson.data[0]);
                 } else {
-                    console.log('error');
-                    return Promise.reject(`${responseJson.message}`);
+                    return Promise.reject(responseJson.message);
                 }
             })
+    }
+
+    static postArticle(token, title, description, type) {
+        const articleType = type.includes('news') ? 'news' :
+            type.includes('sites') ? 'sites' :
+                type.includes('foods') ? 'foods' :
+                    'histories';
+
+        return fetch(`${BASE_URL}/api/${articleType}`, {
+            method: 'POST',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Auth-Token': token,
+            }),
+            body: JSON.stringify({
+                title: title,
+                description: description
+            })
+        })
+            .then(response => { return response.json() })
+            .then(responseJson => {
+                if (responseJson.status.includes('success')) {
+                    return Promise.resolve(responseJson.data[0]);
+                } else {
+                    return Promise.reject(responseJson.message);
+                }
+            });
     }
 }
 
