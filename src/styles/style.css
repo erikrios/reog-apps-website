@@ -145,12 +145,12 @@ body, html {
     text-transform: uppercase;
 }
 
-#article-image-input, #article-add-image-button {
+#article-id-input, #article-image-input, #article-add-image-button {
     margin: 20px;
 }
 
-#article-image-input {
-    width: 80%;
+#article-id-input, #article-image-input {
+    width: 40%;
 }
 
 #article-add-image-button {

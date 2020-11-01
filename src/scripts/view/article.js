@@ -25,6 +25,11 @@ export default function (token, type) {
     bodyElement.appendChild(descriptionInput);
     bodyElement.appendChild(addDataButton);
 
+    const idInput = document.createElement('input');
+    idInput.id = 'article-id-input';
+    idInput.type = 'text';
+    idInput.placeholder = 'Article ID';
+
     const imageInput = document.createElement('input');
     imageInput.id = 'article-image-input';
     imageInput.type = 'text';
@@ -37,6 +42,7 @@ export default function (token, type) {
     addImageButton.type = 'button';
     addImageButton.appendChild(buttonImageText);
 
+    bodyElement.appendChild(idInput);
     bodyElement.appendChild(imageInput);
     bodyElement.appendChild(addImageButton);
 }
