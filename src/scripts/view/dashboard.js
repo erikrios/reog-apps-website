@@ -60,4 +60,8 @@ export default function (token) {
     container.appendChild(wallpaperCard);
 
     bodyElement.appendChild(container);
+
+    newsCard.addEventListener('click', event => {
+
+    });
 }
